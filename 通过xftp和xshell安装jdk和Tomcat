@@ -1,0 +1,33 @@
+首先可以再Windows下面下载好jdk.tar.gz和Tomcat.tar.gz安装包
+xshell连接好Linux系统
+Connecting to 192.168.174.135:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Thu May 25 11:47:27 2017 from 192.168.174.1
+[root@superhang ~]# 
+xftp 连接好Linux系统，将文件传送过来
+[root@superhang ~]# ll
+总用量 486816
+-rw-r--r--. 1 root root   8968516 5月  25 09:08 apache-tomcat-7.0.78.tar.gz
+-rw-r--r--. 1 root root  10998294 5月  24 18:27 apache-tomcat-8.5.13-windows-x64.zip
+lrwxrwxrwx. 1 root root        23 5月  24 18:43 jdk1.8.0_131 -> /usr/java/jdk1.8.0_131/
+-rw-r--r--. 1 root root 146893216 8月  19 2015 jdk-7u80-windows-x64.exe
+-rw-r--r--. 1 root root 146088980 5月  24 18:26 jdk-7windows-x64.zip
+-rw-r--r--. 1 root root 185540433 5月  24 18:37 jdk-8u131-linux-x64.tar.gz
+新建一个java文件夹
+mkdir /usr/java
+tar -zxvf jdk1.7.0_45.tar.gz  -C /usr/java  将压缩包解压到指定的文件夹文件中
+改变系统环境
+vim /etc/profile 添加
+JAVA_HOME=/usr/jdk
+CLASSPATH=$JAVA_HOME/lib/
+PATH=$PATH:$JAVA_HOME/bin
+将系统环境profile 重新编译 
+用.profile 在/etc目录下
+然后用
+[root@superhang etc]# java -version
+openjdk version "1.8.0_131"
+OpenJDK Runtime Environment (build 1.8.0_131-b12)
+OpenJDK 64-Bit Server VM (build 25.131-b12, mixed mode)
+java 命令 java -version 查看
