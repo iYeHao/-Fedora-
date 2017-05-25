@@ -31,3 +31,10 @@ openjdk version "1.8.0_131"
 OpenJDK Runtime Environment (build 1.8.0_131-b12)
 OpenJDK 64-Bit Server VM (build 25.131-b12, mixed mode)
 java 命令 java -version 查看
+mkdir /usr/local/tomcat
+tar -zxvf apache-tomcat-7.0.78.tar.gz -C /usr/local/tomcat
+ln -s /usr/local/tomcat/apache-tomcat-7.0.78/   /usr/local/tomcat7
+然后启动Tomcat
+/usr/local/tomcat7/bin/startup.sh start
+最后用浏览器
+登录localhost：8080
