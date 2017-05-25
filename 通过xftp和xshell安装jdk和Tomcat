@@ -23,6 +23,7 @@ vim /etc/profile 添加
 JAVA_HOME=/usr/jdk
 CLASSPATH=$JAVA_HOME/lib/
 PATH=$PATH:$JAVA_HOME/bin
+export PATH
 将系统环境profile 重新编译 
 用.profile 在/etc目录下
 然后用
