@@ -1,2 +1,37 @@
 1.su 切换到root 权限
 2.ifconfig 查看网卡 ，然后找到ip地址网关地址和子关掩码
+查看-Fedora-/1.jpg
+systemctl start sshd.service 启动ssh服务
+添加一个名为hang的用户 useradd hang
+然后进行hang一个密码  passwd hang
+然后给hang 赋予root 权限 vi /etc/passwd
+vim /etc/passwd
+修改为hang:x:0:0::/home/hang:/bin/bash
+[root@localhost nielsen]# cat /etc/passwd |grep hang
+hang:x:0:0::/home/hang:/bin/bash
+需改hosts
+vim /etc/hosts
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+192.168.174.135 superhang 添加最后一行
+[root@localhost nielsen]# cat /etc/hosts |grep superhang
+192.168.174.135 superhang
+修改端口号
+vim /etc/ssh/sshd_config
+#   IdentityFile ~/.ssh/id_ed25519
+    Port 22
+#   Protocol 2
+#   Cipher 3des
+#   Ciphers aes128-ctr,aes192-ctr,aes256-ctr,arcfour256,arcfour128,aes128-cbc,3des-cbc
+#   MACs hmac-md5,hmac-sha1,umac-64@openssh.com,hmac-ripemd160
+将默认端口号22的#去掉
+[root@localhost ssh]# systemctl enable sshd.service
+[root@localhost ssh]# systemctl start sshd.service
+使防火墙通过sshd
+然后修改IP地址
+cd /etc/sysconfig/network-scripts
+IPADDR=192.168.174.135
+NETMASK=255.255.255.0
+然后reboot
+
+
