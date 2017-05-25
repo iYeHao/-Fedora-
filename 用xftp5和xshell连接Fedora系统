@@ -33,5 +33,7 @@ cd /etc/sysconfig/network-scripts
 IPADDR=192.168.174.135
 NETMASK=255.255.255.0
 然后reboot
-
+然后配置xftp
+查看-Fedora-/2.jpg
+同理xshell
 
